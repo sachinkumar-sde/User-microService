@@ -6,9 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
+@Document
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class UserEntity {
@@ -22,14 +24,12 @@ public class UserEntity {
     @NotNull
     private String emailID;
 
+
+
     public UserEntity(String userName, Long mobileNumber, String emailID) {
         this.userName = userName;
         this.mobileNumber = mobileNumber;
         this.emailID = emailID;
-    }
-
-    public UserEntity() {
-
     }
 
 
@@ -56,4 +56,8 @@ public class UserEntity {
     public void setEmailID(String emailID) {
         this.emailID = emailID;
     }
+    public UserEntity() {
+
+    }
+
 }
